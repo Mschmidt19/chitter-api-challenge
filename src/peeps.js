@@ -1,8 +1,8 @@
 (function(exports) {
   'use strict'
 
-  function Peeps() {
-
+  function Peeps(displayerClass = Displayer) {
+    this.displayer = new displayerClass();
   }
 
   // Peeps.prototype.sample = function() {
@@ -15,14 +15,17 @@
   //   })
   // };
 
-  Peeps.prototype.all = function() {
-    return fetch('https://chitter-backend-api.herokuapp.com/peeps')
+  Peeps.prototype.all = function(fetchTarget) {
+    return fetch(fetchTarget)
     .then(response => response.json())
     .then(data => {
-      return data;
+      this.displayer.addDataToContainer(data);
     })
     .catch((err) => console.log(err))
   };
+
+  var peeps = new Peeps;
+  peeps.all('https://chitter-backend-api.herokuapp.com/peeps')
 
   exports.Peeps = Peeps;
 })(this);
