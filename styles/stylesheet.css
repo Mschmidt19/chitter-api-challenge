@@ -5,9 +5,17 @@ html, main, body {
   font-family: helvetica;
   background-color: #DBFDFF;
 }
+
+#peepContainer {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .centered {
   text-align: center;
 }
+
 .peepBox {
   width: 80%;
   height: auto;
@@ -19,7 +27,7 @@ html, main, body {
 .peepUser {
   font-size: 1.5em;
   color: #3f96e8;
-  text-decoration: underline;
+  margin: 0;
 }
 
 .peepTimeCreated {
