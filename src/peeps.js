@@ -24,17 +24,35 @@
     .catch((err) => console.log(err))
   };
 
-  // Peeps.prototype.addPeep = function(event) {
-  //   event.preventDefault();
-  //
-  //   let name = document.getElementById('name').value;
-  //   let body = document.getElementById('body').value;
-  //
-  //
-  // };
+  Peeps.prototype.newPeep = function(body) {
+    fetch('https://chitter-backend-api.herokuapp.com/peeps', {
+      method: 'POST',
+      headers: {
+        Authorization: `Token token=${sessionStorage.getItem('session_key')}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        peep: {
+          user_id: sessionStorage.getItem('user_id'),
+          body: body
+        }
+      })
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+    })
+    .then(
+      window.setTimeout(function() {
+        location.reload();
+      }, 2000)
+    )
+  };
 
-  var peeps = new Peeps;
-  peeps.all('https://chitter-backend-api.herokuapp.com/peeps')
+
 
   exports.Peeps = Peeps;
 })(this);
+
+var peeps = new Peeps;
+peeps.all('https://chitter-backend-api.herokuapp.com/peeps')

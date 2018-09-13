@@ -10,15 +10,10 @@
       <h2 id='welcomeText'></h2>
       <h2 class="centered">New Peep</h2>
       <div id="peepForm">
-        <form id="addPeep">
-          <div>
-            <input type="text" id="name" placeholder="Your name"></input>
-          </div>
-          <div>
-            <textarea id="body" placeholder="What's on your mind?"></textarea>
-          </div>
-          <input type="submit" value="Post" onclick="peeps.addPeep">
-        </form>
+        <div>
+          <textarea id="body" placeholder="What's on your mind?"></textarea>
+        </div>
+        <input type="submit" value="Post" onclick="peeps.newPeep(document.getElementById('body').value)">
       </div>
       <hr>
       <h2 class='centered'>All Peeps</h2>
