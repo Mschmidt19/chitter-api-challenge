@@ -7,7 +7,7 @@
 
   Users.prototype.newUser = function(handle, password, confirmPassword) {
     if(password != confirmPassword) {
-      throw "Passwords do not match";
+      throw new Error("Passwords do not match");
     }
     else {
     fetch('https://chitter-backend-api.herokuapp.com/users', {
@@ -25,10 +25,6 @@
     .then((response) => response.json())
     .then((data) => console.log(data))
   }
-  };
-
-  Users.prototype.sayHi = function () {
-    console.log("Hi")
   };
 
   exports.Users = Users;
