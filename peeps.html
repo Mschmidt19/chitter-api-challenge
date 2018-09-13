@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Peeps</title>
+  <link rel="stylesheet" href="styles/stylesheet.css" type="text/css">
+  </head>
+  <body>
+    <div id="app">
+      <h2 class="centered">New Peep</h2>
+      <div id="peepForm">
+        <form id="addPeep">
+          <div>
+            <input type="text" id="name" placeholder="Your name"></input>
+          </div>
+          <div>
+            <textarea id="body" placeholder="What's on your mind?"></textarea>
+          </div>
+          <input type="submit" value="Post" onclick="peeps.addPeep">
+        </form>
+      </div>
+      <hr>
+      <h2 class='centered'>All Peeps</h2>
+      <div id="peepContainer">
+
+      </div>
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="src/displayer.js"></script>
+    <script src="src/peeps.js"></script>
+  </body>
+</html>

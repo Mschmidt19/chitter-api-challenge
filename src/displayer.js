@@ -2,7 +2,7 @@
   'use strict'
 
   function Displayer() {
-
+    
   }
 
   Displayer.prototype.peepContainer = function() {

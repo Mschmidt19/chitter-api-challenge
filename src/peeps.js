@@ -24,6 +24,15 @@
     .catch((err) => console.log(err))
   };
 
+  // Peeps.prototype.addPeep = function(event) {
+  //   event.preventDefault();
+  //
+  //   let name = document.getElementById('name').value;
+  //   let body = document.getElementById('body').value;
+  //
+  //
+  // };
+
   var peeps = new Peeps;
   peeps.all('https://chitter-backend-api.herokuapp.com/peeps')
 

@@ -5,11 +5,23 @@ html, main, body {
   font-family: helvetica;
   background-color: #DBFDFF;
 }
+#body {
+  width: 80%;
+  height: 10vh;
+  resize: none;
+}
 
 #peepContainer {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
+}
+
+#peepForm {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .centered {
