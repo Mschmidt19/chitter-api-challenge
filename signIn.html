@@ -13,7 +13,7 @@
     <div>
       <input type="text" id="LoginPassword" placeholder="Password" />
     </div>
-    <input type="submit" value="Sign In" id="LoginButton" />
+    <input type="submit" value="Sign In" id="LoginButton" onclick="users.logIn(document.getElementById('LoginHandle').value, document.getElementById('LoginPassword').value)" />
     <br><br>
     <form action="index.html">
       <input type=submit value="Sign Up" />
