@@ -25,6 +25,16 @@
     })
     .then((response) => response.json())
     .then((data) => console.log(data))
+    .then(
+      window.setTimeout(function() {
+        users.logIn(handle, password)
+      }, 2000)
+    )
+    .then(
+      window.setTimeout(function() {
+        window.location.href = "/peeps.html"
+      }, 4000)
+    )
   }
   };
 
@@ -44,12 +54,18 @@
     .then((response) => response.json())
     .then((data) => {
       console.log(data)
-      this.user_id = data["user_id"];
-      this.session_key = data["session_key"];
+      sessionStorage.setItem('handle', handle)
+      sessionStorage.setItem('user_id', data["user_id"]);
+      sessionStorage.setItem('session_key', data["session_key"]);
     })
+    .then(
+      window.setTimeout(function() {
+        window.location.href = "/peeps.html"
+      }, 2000)
+    )
   };
 
   exports.Users = Users;
 })(this);
 
-var users = new Users;
+var users = new Users

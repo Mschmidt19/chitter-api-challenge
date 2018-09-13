@@ -7,6 +7,7 @@
   </head>
   <body>
     <div id="app">
+      <h2 id='welcomeText'></h2>
       <h2 class="centered">New Peep</h2>
       <div id="peepForm">
         <form id="addPeep">
@@ -28,5 +29,10 @@
     <script src="jquery-3.3.1.min.js"></script>
     <script src="src/displayer.js"></script>
     <script src="src/peeps.js"></script>
+    <script type="text/javascript">
+      if(sessionStorage.getItem('handle') != null) {
+        document.getElementById('welcomeText').innerHTML = 'Welcome, ' + sessionStorage.getItem('handle')
+      }
+    </script>
   </body>
 </html>
