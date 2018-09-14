@@ -23,8 +23,6 @@
     })
   };
 
-
-
   // var displayer = new Displayer();
   //
   // displayer.peeps.all('https://chitter-backend-api.herokuapp.com/peeps').then(response => { displayer.listPeeps(response) });

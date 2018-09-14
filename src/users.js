@@ -77,7 +77,21 @@
     .then(
       window.setTimeout(function() {
         location.reload();
-      }, 2000)
+      }, 1000)
+    )
+  };
+
+  Users.prototype.unlikePeep = function(peep_id) {
+    fetch(`https://chitter-backend-api.herokuapp.com/peeps/${peep_id}/likes/${sessionStorage.getItem('user_id')}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Token token=${sessionStorage.getItem('session_key')}`
+      }
+    })
+    .then(
+      window.setTimeout(function() {
+        location.reload();
+      }, 1000)
     )
   };
 
