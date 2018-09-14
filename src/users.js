@@ -65,6 +65,22 @@
     )
   };
 
+  Users.prototype.likePeep = function(peep_id) {
+    fetch(`https://chitter-backend-api.herokuapp.com/peeps/${peep_id}/likes/${sessionStorage.getItem('user_id')}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Token token=${sessionStorage.getItem('session_key')}`
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .then(
+      window.setTimeout(function() {
+        location.reload();
+      }, 2000)
+    )
+  };
+
   exports.Users = Users;
 })(this);
 

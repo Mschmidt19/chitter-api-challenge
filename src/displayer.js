@@ -2,7 +2,7 @@
   'use strict'
 
   function Displayer() {
-    
+
   }
 
   Displayer.prototype.peepContainer = function() {
@@ -12,7 +12,7 @@
   Displayer.prototype.addDataToContainer = function(array) {
     let output = ''
     array.forEach(function(peep) {
-      output +=`<div id='${peep["id"]}' class='peepBox'><p class='peepUser'>${peep["user"]["handle"]}</p><p class='peepTimeCreated'>${peep["created_at"]}</p><p class='peepBody'>${peep["body"]}</p><p class='peepLikes'>${peep["likes"].length} likes</p></div>`;
+      output +=`<div class='peepBox'><p class='peepUser'>${peep["user"]["handle"]}</p><p class='peepTimeCreated'>${peep["created_at"]}</p><p class='peepBody'>${peep["body"]}</p><p class='peepLikes'>${peep["likes"].length} likes</p><button id='${peep["id"]}' onclick='users.likePeep(this.id)'>Like</button></div>`;
     })
     this.peepContainer().innerHTML = output
   };
