@@ -81,6 +81,40 @@
     )
   };
 
+  Users.prototype.haveLikedPeep = function(peep_id) {
+    return fetch(`https://chitter-backend-api.herokuapp.com/peeps/${peep_id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      var trueOrFalse = false
+      data["likes"].forEach(function(entry) {
+        if(entry["user"]["id"] == sessionStorage.getItem('user_id')) {
+          trueOrFalse = true
+        }
+      })
+      return trueOrFalse;
+      // if(trueOrFalse) {
+      //   console.log('true')
+      // }
+      // else {
+      //   console.log('false')
+      // }
+    })
+  }
+
+  Users.prototype.showLikeOrUnlikeButton = async function(peep_id) {
+    var result = await this.haveLikedPeep(peep_id)
+    if(result) {
+      return `<button id='${peep_id}' onclick='users.unlikePeep(this.id)'>Unlike</button>`
+    }
+    else {
+      return `<button id='${peep_id}' onclick='users.likePeep(this.id)'>Like</button>`
+    }
+  }
+
+  Users.prototype.check = function(peep_id) {
+    console.log(this.haveLikedPeep(peep_id))
+  }
+
   exports.Users = Users;
 })(this);
 
